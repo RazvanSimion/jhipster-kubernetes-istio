@@ -1,0 +1,60 @@
+{
+    "name": "Notification",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "details",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sentDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "format",
+            "fieldType": "NotificationType",
+            "fieldValues": "EMAIL,PUSH",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "userId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "productId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190513131346",
+    "javadoc": "NOTIFICATION",
+    "entityTableName": "notification",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "ui",
+        "notification"
+    ],
+    "microserviceName": "notification"
+}

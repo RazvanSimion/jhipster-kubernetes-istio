@@ -1,0 +1,41 @@
+{
+    "name": "EmployeeLeave",
+    "fields": [
+        {
+            "fieldName": "employeeCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "available",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190513131344",
+    "javadoc": "LEAVE",
+    "entityTableName": "employee_leave",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "ui",
+        "leave"
+    ],
+    "microserviceName": "leave"
+}

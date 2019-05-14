@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="meeting">
+            <h2><span jhiTranslate="uiApp.meetingMeeting.detail.title">Meeting</span> {{meeting.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="uiApp.meetingMeeting.title">Title</span></dt>
+                <dd>
+                    <span>{{meeting.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.meetingMeeting.description">Description</span></dt>
+                <dd>
+                    <span>{{meeting.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.meetingMeeting.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{meeting.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.meetingMeeting.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{meeting.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.meetingMeeting.meetingRoom">Meeting Room</span></dt>
+                <dd>
+                    <div *ngIf="meeting.meetingRoom">
+                        <a [routerLink]="['/meeting-room', meeting.meetingRoom?.id, 'view']">{{meeting.meetingRoom?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="uiApp.meetingMeeting.participant">Participant</span></dt>
+                <dd>
+                    <span *ngFor="let participant of meeting.participants; let last = last">
+                        <a [routerLink]="['/participant', participant?.id, 'view' ]">{{participant.email}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/meeting', meeting.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

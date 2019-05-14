@@ -1,0 +1,33 @@
+{
+  "uiApp": {
+    "leaveLeaveRequest": {
+      "home": {
+        "title": "Leave Requests",
+        "createLabel": "Create a new Leave Request",
+        "createOrEditLabel": "Create or edit a Leave Request"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Leave Request {{ id }}?"
+      },
+      "detail": {
+        "title": "Leave Request"
+      },
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "creationDate": "Creation Date",
+      "departmentCode": "Department Code",
+      "employeeCode": "Employee Code",
+      "workingDays": "Working Days",
+      "description": "Description",
+      "leaveType": "Leave Type",
+      "status": "Status"
+    }
+  },
+  "leaveApp": {
+    "leaveLeaveRequest": {
+      "created": "A new Leave Request is created with identifier {{ param }}",
+      "updated": "A Leave Request is updated with identifier {{ param }}",
+      "deleted": "A Leave Request is deleted with identifier {{ param }}"
+    }
+  }
+}

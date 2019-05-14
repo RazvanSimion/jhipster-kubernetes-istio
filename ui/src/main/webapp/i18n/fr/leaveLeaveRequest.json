@@ -1,0 +1,33 @@
+{
+  "uiApp": {
+    "leaveLeaveRequest": {
+      "home": {
+        "title": "LeaveRequests",
+        "createLabel": "Créer un nouveau Leave Request",
+        "createOrEditLabel": "Créer ou éditer un Leave Request"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Leave Request {{ id }} ?"
+      },
+      "detail": {
+        "title": "Leave Request"
+      },
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "creationDate": "Creation Date",
+      "departmentCode": "Department Code",
+      "employeeCode": "Employee Code",
+      "workingDays": "Working Days",
+      "description": "Description",
+      "leaveType": "Leave Type",
+      "status": "Status"
+    }
+  },
+  "leaveApp": {
+    "leaveLeaveRequest": {
+      "created": "Un nouveau Leave Request a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Leave Request avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Leave Request avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

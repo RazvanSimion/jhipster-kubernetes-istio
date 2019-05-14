@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: meeting
+  namespace: office
+  labels:
+    app: meeting
+spec:
+  selector:
+    app: meeting
+  ports:
+    - name: http
+      port: 8084

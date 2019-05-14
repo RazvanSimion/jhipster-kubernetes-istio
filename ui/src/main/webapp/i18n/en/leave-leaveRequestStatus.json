@@ -1,0 +1,12 @@
+{
+  "uiApp": {
+    "LeaveRequestStatus": {
+      "null": "",
+      "COMPLETED": "COMPLETED",
+      "PENDING": "PENDING",
+      "APPROVED": "APPROVED",
+      "REJECTED": "REJECTED",
+      "CANCELLED": "CANCELLED"
+    }
+  }
+}

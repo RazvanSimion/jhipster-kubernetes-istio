@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: organization-virtualservice
+  namespace: office
+spec:
+  hosts:
+    - organization
+  http:
+    - route:
+        - destination:
+            host: organization
+            subset: 'v1'
+          weight: 100
+      retries:
+        attempts: 3
+        perTryTimeout: 2s

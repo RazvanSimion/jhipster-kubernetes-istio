@@ -1,0 +1,16 @@
+version: '2'
+services:
+  meeting-mongodb:
+    image: mongo:4.0.9
+    ports:
+      - '27017:27017'
+    command: mongos --configdb meeting-mongodb-config
+  meeting-mongodb-node:
+    build:
+      context: .
+      dockerfile: mongodb/MongoDB.Dockerfile
+    command: mongod --replSet rs1 --noprealloc --smallfiles
+  meeting-mongodb-config:
+    image: mongo:4.0.9
+    container_name: meeting-mongodb-config
+    command: mongod --noprealloc --smallfiles --configsvr --dbpath /data/db

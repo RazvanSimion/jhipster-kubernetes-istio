@@ -1,0 +1,27 @@
+{
+  "uiApp": {
+    "meetingMeetingRoom": {
+      "home": {
+        "title": "Meeting Rooms",
+        "createLabel": "Create a new Meeting Room",
+        "createOrEditLabel": "Create or edit a Meeting Room"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Meeting Room {{ id }}?"
+      },
+      "detail": {
+        "title": "Meeting Room"
+      },
+      "code": "Code",
+      "location": "Location",
+      "name": "Name"
+    }
+  },
+  "meetingApp": {
+    "meetingMeetingRoom": {
+      "created": "A new Meeting Room is created with identifier {{ param }}",
+      "updated": "A Meeting Room is updated with identifier {{ param }}",
+      "deleted": "A Meeting Room is deleted with identifier {{ param }}"
+    }
+  }
+}

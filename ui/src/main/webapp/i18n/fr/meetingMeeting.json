@@ -1,0 +1,30 @@
+{
+  "uiApp": {
+    "meetingMeeting": {
+      "home": {
+        "title": "Meetings",
+        "createLabel": "Créer un nouveau Meeting",
+        "createOrEditLabel": "Créer ou éditer un Meeting"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Meeting {{ id }} ?"
+      },
+      "detail": {
+        "title": "Meeting"
+      },
+      "title": "Title",
+      "description": "Description",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "meetingRoom": "Meeting Room",
+      "participant": "Participant"
+    }
+  },
+  "meetingApp": {
+    "meetingMeeting": {
+      "created": "Un nouveau Meeting a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Meeting avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Meeting avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

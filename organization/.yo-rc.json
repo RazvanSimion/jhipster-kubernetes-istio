@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "enableHibernateCache": true,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": true,
+    "jhiPrefix": "jhi",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "messageBroker": false,
+    "nativeLanguage": "en",
+    "packageName": "ro.trc.office.organization",
+    "packageFolder": "ro/trc/office/organization",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "serviceDiscoveryType": false,
+    "skipClient": true,
+    "testFrameworks": [],
+    "websocket": false,
+    "baseName": "organization",
+    "applicationType": "microservice",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "buildTool": "gradle",
+    "serverPort": "8081",
+    "jhipsterVersion": "6.0.0",
+    "skipUserManagement": true,
+    "clientPackageManager": "npm",
+    "jwtSecretKey": "YTdiNGQ4NGVhYzNlNGIyODU1NWRkYjRjOGIxNGQ3M2VhNDUwMjhmYzFjMjJlZWNkN2ZkNDllNjE3MThiZWFjM2NiNWFmNzgwZDdlYzYwYTUzYzgwZTIyNmI2NjRjOGUzYzUzNjE1YjhiYTU2MDZjYTdhNTcxYjI0NjM0ZmE4NTU=",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": []
+  },
+  "entities": [
+    "Department",
+    "Employee"
+  ]
+}

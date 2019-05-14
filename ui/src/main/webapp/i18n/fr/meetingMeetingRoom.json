@@ -1,0 +1,27 @@
+{
+  "uiApp": {
+    "meetingMeetingRoom": {
+      "home": {
+        "title": "MeetingRooms",
+        "createLabel": "Créer un nouveau Meeting Room",
+        "createOrEditLabel": "Créer ou éditer un Meeting Room"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Meeting Room {{ id }} ?"
+      },
+      "detail": {
+        "title": "Meeting Room"
+      },
+      "code": "Code",
+      "location": "Location",
+      "name": "Name"
+    }
+  },
+  "meetingApp": {
+    "meetingMeetingRoom": {
+      "created": "Un nouveau Meeting Room a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Meeting Room avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Meeting Room avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

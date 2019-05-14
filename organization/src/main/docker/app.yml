@@ -1,0 +1,14 @@
+version: '2'
+services:
+  organization-app:
+    image: organization
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://organization-mysql:3306/organization?useUnicode=true&characterEncoding=utf8&useSSL=false
+      - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+  organization-mysql:
+    extends:
+      file: mysql.yml
+      service: organization-mysql

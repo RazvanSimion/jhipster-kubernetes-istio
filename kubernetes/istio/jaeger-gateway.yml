@@ -1,0 +1,39 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: jaeger-observability-gateway
+  namespace: istio-system
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - jaeger.35.184.190.237.nip.io
+    - port:
+        number: 80
+        name: http2
+        protocol: HTTP2
+      hosts:
+        - jaeger.35.184.190.237.nip.io
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: jaeger-gw-virtualservice
+  namespace: istio-system
+spec:
+  hosts:
+    - jaeger.35.184.190.237.nip.io
+  gateways:
+    - jaeger-observability-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            host: jaeger-query

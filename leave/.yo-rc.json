@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "enableHibernateCache": false,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": true,
+    "jhiPrefix": "jhi",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "messageBroker": false,
+    "nativeLanguage": "en",
+    "packageName": "ro.trc.office.leave",
+    "packageFolder": "ro/trc/office/leave",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "serviceDiscoveryType": false,
+    "skipClient": true,
+    "testFrameworks": [],
+    "websocket": false,
+    "baseName": "leave",
+    "applicationType": "microservice",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "buildTool": "gradle",
+    "serverPort": "8082",
+    "jhipsterVersion": "6.0.0",
+    "skipUserManagement": true,
+    "clientPackageManager": "npm",
+    "jwtSecretKey": "NWM1OTdkMGZiMTc1M2U4ZjRjMDMxMWRhNjFkZDU0NWRjZDJjNGI2OTgzNDBjZmIxOTRiNDk5M2EzOGI0NjExNzAwZTMzNjAyODU3NTM1MmI5MDczY2M2YThmZWNiNTM2OThjMjRlMzUxMDMzZGNkZGEzOGZjOWQ3OGI4M2MxYWI=",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": []
+  },
+  "entities": [
+    "EmployeeLeave",
+    "LeaveRequest"
+  ]
+}

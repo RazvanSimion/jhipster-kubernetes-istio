@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-employee-leave-heading" jhiTranslate="uiApp.leaveEmployeeLeave.home.createOrEditLabel">Create or edit a Employee Leave</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!employeeLeave.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="uiApp.leaveEmployeeLeave.employeeCode" for="field_employeeCode">Employee Code</label>
+                    <input type="text" class="form-control" name="employeeCode" id="field_employeeCode"
+                           formControlName="employeeCode"/>
+                    <div *ngIf="editForm.get('employeeCode').invalid && (editForm.get('employeeCode').dirty || editForm.get('employeeCode').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('employeeCode').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="uiApp.leaveEmployeeLeave.total" for="field_total">Total</label>
+                    <input type="number" class="form-control" name="total" id="field_total"
+                           formControlName="total"/>
+                    <div *ngIf="editForm.get('total').invalid && (editForm.get('total').dirty || editForm.get('total').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('total').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('total')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="uiApp.leaveEmployeeLeave.available" for="field_available">Available</label>
+                    <input type="number" class="form-control" name="available" id="field_available"
+                           formControlName="available"/>
+                    <div *ngIf="editForm.get('available').invalid && (editForm.get('available').dirty || editForm.get('available').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('available').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('available')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

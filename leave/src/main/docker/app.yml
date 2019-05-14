@@ -1,0 +1,15 @@
+version: '2'
+services:
+  leave-app:
+    image: leave
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATA_MONGODB_URI=mongodb://leave-mongodb:27017
+      - SPRING_DATA_MONGODB_DATABASE=leave
+      - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+  leave-mongodb:
+    extends:
+      file: mongodb.yml
+      service: leave-mongodb

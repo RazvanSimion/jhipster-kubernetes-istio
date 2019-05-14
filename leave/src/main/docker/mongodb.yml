@@ -1,0 +1,8 @@
+version: '2'
+services:
+  leave-mongodb:
+    image: mongo:4.0.9
+    ports:
+      - '27017:27017'
+    # volumes:
+    #     - ~/volumes/jhipster/leave/mongodb/:/data/db/

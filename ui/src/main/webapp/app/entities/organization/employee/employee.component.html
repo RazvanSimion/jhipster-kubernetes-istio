@@ -1,0 +1,86 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="uiApp.organizationEmployee.home.title">Employees</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-employee" [routerLink]="['/employee/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="uiApp.organizationEmployee.home.createLabel">
+            Create new Employee
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="employees">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="code"><span jhiTranslate="uiApp.organizationEmployee.code">Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="firstName"><span jhiTranslate="uiApp.organizationEmployee.firstName">First Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lastName"><span jhiTranslate="uiApp.organizationEmployee.lastName">Last Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gender"><span jhiTranslate="uiApp.organizationEmployee.gender">Gender</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span jhiTranslate="uiApp.organizationEmployee.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phone"><span jhiTranslate="uiApp.organizationEmployee.phone">Phone</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="addressLine1"><span jhiTranslate="uiApp.organizationEmployee.addressLine1">Address Line 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="addressLine2"><span jhiTranslate="uiApp.organizationEmployee.addressLine2">Address Line 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="city"><span jhiTranslate="uiApp.organizationEmployee.city">City</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="country"><span jhiTranslate="uiApp.organizationEmployee.country">Country</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="department.name"><span jhiTranslate="uiApp.organizationEmployee.department">Department</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let employee of employees ;trackBy: trackId">
+                <td><a [routerLink]="['/employee', employee.id, 'view' ]">{{employee.id}}</a></td>
+                <td>{{employee.code}}</td>
+                <td>{{employee.firstName}}</td>
+                <td>{{employee.lastName}}</td>
+                <td jhiTranslate="{{'uiApp.Gender.' + employee.gender}}">{{employee.gender}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.phone}}</td>
+                <td>{{employee.addressLine1}}</td>
+                <td>{{employee.addressLine2}}</td>
+                <td>{{employee.city}}</td>
+                <td>{{employee.country}}</td>
+                <td>
+                    <div *ngIf="employee.department">
+                        <a [routerLink]="['../department', employee.department?.id, 'view' ]" >{{employee.department?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/employee', employee.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/employee', employee.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'employee', { outlets: { popup: employee.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="employees && employees.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

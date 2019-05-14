@@ -1,0 +1,35 @@
+{
+    "name": "Participant",
+    "fields": [
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "meeting",
+            "otherEntityRelationshipName": "participant",
+            "relationshipName": "meeting",
+            "otherEntityField": "title",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190513131348",
+    "entityTableName": "participant",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "ui",
+        "meeting"
+    ],
+    "microserviceName": "meeting"
+}

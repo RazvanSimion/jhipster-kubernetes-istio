@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "enableHibernateCache": false,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": true,
+    "jhiPrefix": "jhi",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "messageBroker": false,
+    "nativeLanguage": "en",
+    "packageName": "ro.trc.office.meeting",
+    "packageFolder": "ro/trc/office/meeting",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "serviceDiscoveryType": false,
+    "skipClient": true,
+    "testFrameworks": [],
+    "websocket": false,
+    "baseName": "meeting",
+    "applicationType": "microservice",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "buildTool": "gradle",
+    "serverPort": "8084",
+    "jhipsterVersion": "6.0.0",
+    "skipUserManagement": true,
+    "clientPackageManager": "npm",
+    "jwtSecretKey": "YmYwN2RiNjNhYmI4MzQyNWYyZDg3ODIxOWMxNzgwNjZlMDE1ZjYzNDE0ZTM1OWM1OGU2NjVmNDAzMTBlNzgzMDFhNTRmZGJjM2QwMDAyYjVjZmE2NGYzY2ExZjE3NGYwYTBhNDMwZmI3YmI0NzA5ZDUwZmI5Y2UwZDc5MzQxY2Q=",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": []
+  },
+  "entities": [
+    "MeetingRoom",
+    "Meeting",
+    "Participant"
+  ]
+}

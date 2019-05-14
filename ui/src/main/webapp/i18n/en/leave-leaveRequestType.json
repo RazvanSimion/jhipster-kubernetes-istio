@@ -1,0 +1,9 @@
+{
+  "uiApp": {
+    "LeaveRequestType": {
+      "null": "",
+      "VACATION": "VACATION",
+      "MEDICAL": "MEDICAL"
+    }
+  }
+}

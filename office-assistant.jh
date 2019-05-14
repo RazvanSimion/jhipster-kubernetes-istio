@@ -1,0 +1,219 @@
+application {
+  config {
+    baseName ui
+    applicationType gateway
+    packageName ro.trc.office.ui
+    serviceDiscoveryType no
+    authenticationType jwt
+    databaseType mongodb
+    cacheProvider no
+    enableHibernateCache false
+    buildTool gradle
+    useSass true
+    testFrameworks [protractor]
+  }
+  entities *
+}
+
+
+application {
+  config {
+    baseName organization
+    applicationType microservice
+    packageName ro.trc.office.organization
+    serviceDiscoveryType no
+    authenticationType jwt
+    prodDatabaseType mysql
+    cacheProvider hazelcast
+    buildTool gradle
+    serverPort 8081
+  }
+  entities Department, Employee
+}
+
+application {
+  config {
+    baseName leave
+    applicationType microservice
+    packageName ro.trc.office.leave
+    serviceDiscoveryType no
+    authenticationType jwt
+    databaseType mongodb
+    cacheProvider no
+    enableHibernateCache false
+    buildTool gradle
+    serverPort 8082
+  }
+  entities EmployeeLeave, LeaveRequest
+}
+
+application {
+  config {
+    baseName notification
+    applicationType microservice
+    packageName ro.trc.office.notification
+    serviceDiscoveryType no
+    authenticationType jwt
+    databaseType mongodb
+    cacheProvider no
+    enableHibernateCache false
+    buildTool gradle
+    serverPort 8083
+  }
+  entities Notification
+}
+
+application {
+  config {
+    baseName meeting
+    applicationType microservice
+    packageName ro.trc.office.meeting
+    serviceDiscoveryType no
+    authenticationType jwt
+    databaseType mongodb
+    cacheProvider no
+    enableHibernateCache false
+    buildTool gradle
+    serverPort 8084
+  }
+  entities MeetingRoom, Meeting, Participant
+}
+
+/**
+  * ORGANIZATION
+*/
+
+entity Employee {
+  code String required
+    firstName String required
+    lastName String required
+    gender Gender required
+    email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    phone String required
+    addressLine1 String required
+    addressLine2 String
+    city String required
+    country String required
+}
+
+entity Department {
+  code String required
+  name String required
+}
+
+enum Gender {
+    MALE, FEMALE, OTHER
+}
+
+relationship ManyToOne {
+  Employee{department(name) required} to Department
+}
+
+service Employee, Department with serviceClass
+paginate Employee, Department with pagination
+microservice Employee, Department with organization
+
+
+/**
+  * LEAVE
+*/
+entity EmployeeLeave {
+    employeeCode String required
+    total BigDecimal required
+    available BigDecimal required    
+}
+
+enum LeaveRequestStatus {
+    COMPLETED, PENDING, APPROVED, REJECTED, CANCELLED
+}
+
+enum LeaveRequestType {
+    VACATION, MEDICAL
+}
+
+entity LeaveRequest {
+  startDate Instant required
+    endDate Instant required
+    creationDate Instant required
+    departmentCode String required
+    employeeCode String required
+    workingDays Long required
+    description String
+    leaveType LeaveRequestType required
+    status LeaveRequestStatus required
+}
+
+service EmployeeLeave, LeaveRequest  with serviceClass
+paginate EmployeeLeave, LeaveRequest with pagination
+microservice EmployeeLeave, LeaveRequest with leave
+
+
+/**
+ * NOTIFICATION
+ */
+
+
+entity Notification {
+    date Instant required
+    details String
+    sentDate Instant required
+    format NotificationType required
+    userId Long required
+    productId Long required
+}
+
+enum NotificationType {
+    EMAIL, PUSH
+}
+service Notification  with serviceClass
+paginate Notification with pagination
+microservice Notification with notification
+
+/**
+ * MEETING
+ */
+ 
+entity MeetingRoom {
+  code String required
+    location String required
+    name String required
+} 
+
+entity Participant {
+  email String required
+}
+
+entity Meeting {
+  title String required
+    description String
+  startDate Instant required
+    endDate Instant required
+}
+
+relationship ManyToOne {
+  Meeting{meetingRoom(name) required} to MeetingRoom
+}
+
+relationship ManyToMany {
+  Meeting{participant(email)} to Participant{meeting(title)}
+}
+
+service MeetingRoom, Meeting, Participant  with serviceClass
+paginate MeetingRoom, Meeting, Participant with pagination
+microservice MeetingRoom, Meeting, Participant with meeting
+
+
+/**
+ * DEPLOYMENT
+ */
+
+deployment {
+  deploymentType kubernetes
+  appsFolders [ui, organization, leave, meeting, notification]
+  dockerRepositoryName "razvansimiontrencadis"
+  serviceDiscoveryType no
+  istio true
+  kubernetesServiceType Ingress
+  kubernetesNamespace office
+  ingressDomain "35.184.190.237.nip.io"
+}

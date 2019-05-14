@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: leave
+  namespace: office
+  labels:
+    app: leave
+spec:
+  selector:
+    app: leave
+  ports:
+    - name: http
+      port: 8082

@@ -1,0 +1,61 @@
+{
+    "name": "Meeting",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "meetingRoom",
+            "otherEntityRelationshipName": "meeting",
+            "relationshipValidateRules": "required",
+            "relationshipName": "meetingRoom",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "participant",
+            "otherEntityRelationshipName": "meeting",
+            "relationshipName": "participant",
+            "otherEntityField": "email",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190513131349",
+    "entityTableName": "meeting",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "ui",
+        "meeting"
+    ],
+    "microserviceName": "meeting"
+}

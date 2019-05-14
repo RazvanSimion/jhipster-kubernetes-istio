@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "enableHibernateCache": false,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": true,
+    "jhiPrefix": "jhi",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "messageBroker": false,
+    "nativeLanguage": "en",
+    "packageName": "ro.trc.office.notification",
+    "packageFolder": "ro/trc/office/notification",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "serviceDiscoveryType": false,
+    "skipClient": true,
+    "testFrameworks": [],
+    "websocket": false,
+    "baseName": "notification",
+    "applicationType": "microservice",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "buildTool": "gradle",
+    "serverPort": "8083",
+    "jhipsterVersion": "6.0.0",
+    "skipUserManagement": true,
+    "clientPackageManager": "npm",
+    "jwtSecretKey": "YmQxOGU0Njk4YjdhNmZmYWRjZjMyMDU3NzQ3YmM4N2QyMmMyMGFjM2QxZDU4OTdjYmIzMmZhMWZjMGY5M2M1NTU1Y2YzOGEyNWQ4YzRmYjljMDhjMzkzNmRkNDkxZjU4NjllZmU2ODIzZmMxZWQzZDk4NWJmZjA4NTk2ZWQxNWU=",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": []
+  },
+  "entities": [
+    "Notification"
+  ]
+}

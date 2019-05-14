@@ -1,0 +1,9 @@
+{
+  "uiApp": {
+    "NotificationType": {
+      "null": "",
+      "EMAIL": "EMAIL",
+      "PUSH": "PUSH"
+    }
+  }
+}

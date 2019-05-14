@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employee">
+            <h2><span jhiTranslate="uiApp.organizationEmployee.detail.title">Employee</span> {{employee.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="uiApp.organizationEmployee.code">Code</span></dt>
+                <dd>
+                    <span>{{employee.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.organizationEmployee.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{employee.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.organizationEmployee.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{employee.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.organizationEmployee.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'uiApp.Gender.' + employee.gender}}">{{employee.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.organizationEmployee.email">Email</span></dt>
+                <dd>
+                    <span>{{employee.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.organizationEmployee.phone">Phone</span></dt>
+                <dd>
+                    <span>{{employee.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.organizationEmployee.addressLine1">Address Line 1</span></dt>
+                <dd>
+                    <span>{{employee.addressLine1}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.organizationEmployee.addressLine2">Address Line 2</span></dt>
+                <dd>
+                    <span>{{employee.addressLine2}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.organizationEmployee.city">City</span></dt>
+                <dd>
+                    <span>{{employee.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.organizationEmployee.country">Country</span></dt>
+                <dd>
+                    <span>{{employee.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.organizationEmployee.department">Department</span></dt>
+                <dd>
+                    <div *ngIf="employee.department">
+                        <a [routerLink]="['/department', employee.department?.id, 'view']">{{employee.department?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employee', employee.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

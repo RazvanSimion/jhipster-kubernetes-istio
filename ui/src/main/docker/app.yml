@@ -1,0 +1,17 @@
+version: '2'
+services:
+  ui-app:
+    image: ui
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATA_MONGODB_URI=mongodb://ui-mongodb:27017
+      - SPRING_DATA_MONGODB_DATABASE=ui
+      - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+    ports:
+      - 8080:8080
+  ui-mongodb:
+    extends:
+      file: mongodb.yml
+      service: ui-mongodb

@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="leaveRequest">
+            <h2><span jhiTranslate="uiApp.leaveLeaveRequest.detail.title">Leave Request</span> {{leaveRequest.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="uiApp.leaveLeaveRequest.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{leaveRequest.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.leaveLeaveRequest.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{leaveRequest.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.leaveLeaveRequest.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{leaveRequest.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.leaveLeaveRequest.departmentCode">Department Code</span></dt>
+                <dd>
+                    <span>{{leaveRequest.departmentCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.leaveLeaveRequest.employeeCode">Employee Code</span></dt>
+                <dd>
+                    <span>{{leaveRequest.employeeCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.leaveLeaveRequest.workingDays">Working Days</span></dt>
+                <dd>
+                    <span>{{leaveRequest.workingDays}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.leaveLeaveRequest.description">Description</span></dt>
+                <dd>
+                    <span>{{leaveRequest.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.leaveLeaveRequest.leaveType">Leave Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'uiApp.LeaveRequestType.' + leaveRequest.leaveType}}">{{leaveRequest.leaveType}}</span>
+                </dd>
+                <dt><span jhiTranslate="uiApp.leaveLeaveRequest.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'uiApp.LeaveRequestStatus.' + leaveRequest.status}}">{{leaveRequest.status}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/leave-request', leaveRequest.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

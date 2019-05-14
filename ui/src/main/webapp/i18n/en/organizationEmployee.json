@@ -1,0 +1,35 @@
+{
+  "uiApp": {
+    "organizationEmployee": {
+      "home": {
+        "title": "Employees",
+        "createLabel": "Create a new Employee",
+        "createOrEditLabel": "Create or edit a Employee"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Employee {{ id }}?"
+      },
+      "detail": {
+        "title": "Employee"
+      },
+      "code": "Code",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "gender": "Gender",
+      "email": "Email",
+      "phone": "Phone",
+      "addressLine1": "Address Line 1",
+      "addressLine2": "Address Line 2",
+      "city": "City",
+      "country": "Country",
+      "department": "Department"
+    }
+  },
+  "organizationApp": {
+    "organizationEmployee": {
+      "created": "A new Employee is created with identifier {{ param }}",
+      "updated": "A Employee is updated with identifier {{ param }}",
+      "deleted": "A Employee is deleted with identifier {{ param }}"
+    }
+  }
+}

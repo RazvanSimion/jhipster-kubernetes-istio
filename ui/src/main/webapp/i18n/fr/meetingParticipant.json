@@ -1,0 +1,26 @@
+{
+  "uiApp": {
+    "meetingParticipant": {
+      "home": {
+        "title": "Participants",
+        "createLabel": "Créer un nouveau Participant",
+        "createOrEditLabel": "Créer ou éditer un Participant"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Participant {{ id }} ?"
+      },
+      "detail": {
+        "title": "Participant"
+      },
+      "email": "Email",
+      "meeting": "Meeting"
+    }
+  },
+  "meetingApp": {
+    "meetingParticipant": {
+      "created": "Un nouveau Participant a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Participant avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Participant avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

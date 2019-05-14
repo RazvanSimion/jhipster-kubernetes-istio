@@ -1,0 +1,27 @@
+{
+  "uiApp": {
+    "leaveEmployeeLeave": {
+      "home": {
+        "title": "EmployeeLeaves",
+        "createLabel": "Créer un nouveau Employee Leave",
+        "createOrEditLabel": "Créer ou éditer un Employee Leave"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Employee Leave {{ id }} ?"
+      },
+      "detail": {
+        "title": "Employee Leave"
+      },
+      "employeeCode": "Employee Code",
+      "total": "Total",
+      "available": "Available"
+    }
+  },
+  "leaveApp": {
+    "leaveEmployeeLeave": {
+      "created": "Un nouveau Employee Leave a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Employee Leave avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Employee Leave avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}
